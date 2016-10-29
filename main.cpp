@@ -43,12 +43,13 @@ int main(){                           //main function will do one job get the in
 int program_syntax_check(FILE *fr){
 	char current_line[500];
 	int num=0;
+	int main_flag=0;
 	while(fgets(current_line,500,fr)!=NULL){
 			num++;
 		//printf("%scurrent_line[0]:%c\n",current_line,current_line[0]);
 	
 		if(current_line[0]="#"){                                                                     //to check all the header file syntax are correct
-			if(strcmp(current_line,"#include <",10)!=0 && strcmp(current_line,"#include<",9)!=0 |){
+			if(strcmp(current_line,"#include <",10)!=0 && strcmp(current_line,"#include<",9)!=0){
 				printf("\nsyntax error on line %d\n",num);
 				return -1;
 			}
@@ -56,7 +57,45 @@ int program_syntax_check(FILE *fr){
 				printf("\nsyntax error on line %d\n",num);
 				return -1;
 			}
-		
 		}
+		
+		elif if(strcmp(current_line,"print(",6)==0){                                               //to check all the printf statements have no syntax error
+			if(strcmp(current_line,"printf(",7)!=0){
+				printf("\nsyntax error on line %d\n",num);
+				return -1;
+			}
+			else if(current_line[strlen(current_line)-1]!=";" && current_line[strlen(current_line)-2]!=")"){
+				printf("\nsyntax error on line %d\n",num);
+				return -1;
+			}	
+		}
+		
+		else if(strcmp(current_line,"int main",8)){                                                     //to check int main function is present and syntactically correct
+			main_flag=1;
+			if(strcmp(current_line,"int main()",10)!=0){
+				printf("\nsyntax error on line %d\n",num);
+				return -1;
+			}
+		}
+		
+		else if(strcmp(current_line,"if(",3)||strcmp(current_line,"if (",4)){
+			
+		}
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	}
+	
+	
+	
+	
 }
