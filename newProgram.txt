@@ -1,0 +1,5 @@
+#include<stdi0o.h>
+heloo
+whatentet
+return 0;
+}
